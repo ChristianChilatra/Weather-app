@@ -1,0 +1,57 @@
+section {
+  background: var(--gradient);
+  inline-size: 14.6875rem;
+  block-size: 5.6875rem;
+  margin: auto;
+  position: relative;
+  inset-block-start: calc(100vh - 45rem);
+  display: grid;
+  grid-template-columns: 7.5rem .75rem auto;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "temp dataTime dataTime" "temp icon ubi";
+  border-radius: .5rem;
+  row-gap: .5rem;
+}
+
+section img {
+  grid-area: icon;
+  inline-size: .625rem;
+  block-size: .75rem;
+}
+
+#tempGps {
+  background: transparent;
+  border: none;
+  grid-area: temp;
+  inline-size: 4rem;
+  block-size: 2.6875rem;
+  place-self: center;
+  font-size: 2.8rem;
+  color: var(--white);
+}
+
+#dataTime {
+  inline-size: 1rem;
+  block-size: 1rem;
+  grid-area: dataTime;
+  justify-content: start;
+  align-self: flex-end;
+  inline-size: 100%;
+  background: transparent;
+  padding: 0;
+  border: none;
+  font: var(--caption-caption);
+  color: var(--white);
+}
+
+#dateGps {
+  inline-size: 1rem;
+  block-size: 1rem;
+  grid-area: ubi;
+  inline-size: 100%;
+  background: transparent;
+  padding: 0;
+  border: none;
+  font: var(--caption-caption);
+  color: var(--white);
+}

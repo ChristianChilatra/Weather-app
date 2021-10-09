@@ -1,0 +1,125 @@
+main {
+  background-color: var(--bg);
+  padding: 1.625rem 1.125rem;
+  inline-size: 85%;
+  block-size: 15rem;
+  border-radius: .8rem;
+  position: relative;
+  inset-block-start: calc(100vh - 18.5rem);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+main hr{
+  position: absolute;
+  inline-size: 4rem;
+  block-size: .25rem;
+  background: var(--white);
+  border: none;
+  inset-block-start: 0;
+  inset-inline-start: 45%;
+  border-radius: .5rem;
+}
+
+.containerTime {
+  display: grid;
+  column-gap: 1.5rem;
+  justify-content: start;
+  overflow-x: auto;
+  grid-template-columns: repeat(5, auto);
+  grid-template-areas: "time time time time time" "whter whter whter whter whter";
+}
+
+.containerTime::-webkit-scrollbar{
+  display: none;
+}
+
+.containerTime a {
+  text-decoration: none;
+}
+
+.containerTime a:focus h2 {
+  color: var(--primary);
+  font: var(--body1-bold);
+  box-shadow: inset 0px -8px 0px -1px var(--primary);
+  user-select: none;
+}
+
+.containerTime h2 {
+  color: var(--white);
+  font: var(--body1-regular);
+  font-size: 1rem;
+  white-space: nowrap;
+  margin: 0;
+  block-size: 2rem;
+}
+
+.containerWheater {
+  block-size: 7.5rem;
+  padding: 1rem 0 1rem 0;
+  overflow-x: auto;
+  grid-area: whter;
+}
+
+.containerWheater::-webkit-scrollbar {
+  display: none;
+}
+
+.containerWheater ul {
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+}
+
+.containerWheater li {
+  display: flex;
+  flex-direction: column;
+  inline-size: 4.0625rem;
+  block-size: 7rem;
+  background-color: var(--grey);
+  white-space: nowrap;
+  color: var(--white);
+  font: var(--body2-regular);
+  font-size: .75rem;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  border-radius: 3.625rem;
+}
+
+.containerWheater a {
+  text-decoration: none;
+}
+
+.containerWheater a:focus li {
+  border: 3px solid var(--primary);
+}
+
+.containerDate {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+}
+.containerDate div{
+  display: flex;
+  gap: .5rem;
+}
+
+.containerDate label {
+  color: var(--white);
+  font: var(--body1-regular);
+  font-size: 1rem;
+}
+
+.containerDate input, .containerWheater input {
+  background: transparent;
+  inline-size: 100%;
+  border: none;
+  user-select: none;
+  outline: none;
+  color: var(--white);
+  font: var(--body1-bold);
+  font-size: 1rem;
+}
