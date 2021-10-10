@@ -1,7 +1,19 @@
-import weather from "../data/weatherData.js";
 import {setFormatTime} from "./utils/format-data.js";
 import {setFormatTemp} from "./utils/format-data.js";
 import {setBackground} from "./utils/format-data.js";
+import {getLatLong} from "./geolocation.js";
+import {getCurrentWeather} from "./services/weather.js";
+
+export default async function currentWeather() {
+  try {
+    const { latitud, longitud } = await getLatLong()
+    const weather = await getCurrentWeather(latitud, longitud)
+    configCurrentWeather(weather)
+  } catch (err) {
+    console.log(err.message)
+  }
+}
+
 
 function setCurrentCity($elemento, city) {
   $elemento.textContent = city
@@ -29,9 +41,7 @@ function setCurrentBackground($elemento, weather) {
   $elemento.style.backgroundImage = setBackground(weather)
 }
 
-
 function configCurrentWeather(weather) {
-  //dateGps
 
   const $currentCity = document.querySelector("#dateGps")
   const $currentDate = document.querySelector("#dataTime")
@@ -44,10 +54,5 @@ function configCurrentWeather(weather) {
   setCurrentDate($currentDate)
   setCurrentTemp($currentTemp, temp)
   setCurrentBackground($currentBackground, weather)
-}
-
-
-export default function currentWeather() {
-  configCurrentWeather(weather)
 
 }

@@ -26,9 +26,14 @@ export function setBackground(weather){
   const sunRiseTime = new Date(weather.sys.sunrise * 1000).getHours()
   const sunSetTime = new Date(weather.sys.sunset * 1000).getHours()
   let idWeather = String(weather.weather[0].id)[0]
+
+
+  let size = (window.matchMedia("(-webkit-max-device-pixel-ratio:2)").matches) ? "-x2" : ""
+
+
   if (sunSetTime < currentHours > sunRiseTime) {
-    return `url(img/day-${weatherConditionsCodes[idWeather]}-bg.jpg)`
+    return `url(img/day-${weatherConditionsCodes[idWeather]}-bg${size}.jpg)`
   } else if (sunSetTime > currentHours < sunRiseTime){
-    return `url(img/nigth-${weatherConditionsCodes[idWeather]}-bg.jpg)`
+    return `url(img/nigth-${weatherConditionsCodes[idWeather]}-bg${size}.jpg)`
   }
 }

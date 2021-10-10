@@ -1,6 +1,6 @@
 section {
   background: var(--gradient);
-  inline-size: 14.6875rem;
+  inline-size: 14.5rem;
   block-size: 5.6875rem;
   margin: auto;
   position: relative;
@@ -22,11 +22,13 @@ section {
   place-self: center;
   font-size: 2.8rem;
   color: var(--white);
+  display: flex;
+  justify-content: center;
 }
 
 #dataTime {
   inline-size: 1rem;
-  block-size: 1rem;
+  block-size: auto;
   grid-area: dataTime;
   justify-content: start;
   align-self: flex-end;
@@ -36,6 +38,7 @@ section {
   border: none;
   font: var(--caption-caption);
   color: var(--white);
+  display: flex;
 }
 
 #dateGps {

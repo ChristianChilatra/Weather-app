@@ -14,12 +14,13 @@ main {
 
 main hr {
   position: absolute;
+  margin: 0 calc(50% - 2rem) 0 calc(50% - 2rem);
   inline-size: 4rem;
   block-size: .25rem;
   background: var(--white);
   border: none;
-  inset-block-start: 0;
-  inset-inline-start: 42.5%;
+  inset-inline-start: 0;
+  inset-block-start: .5rem;
   border-radius: .5rem;
 }
 
@@ -44,7 +45,7 @@ main hr {
 .containerTime a:focus h2 {
   color: var(--primary);
   font: var(--body1-bold);
-  box-shadow: inset 0px -8px 0px -1px var(--primary);
+  box-shadow: inset 0px -8px 0px -5px var(--primary);
   user-select: none;
 }
 
@@ -93,7 +94,7 @@ main hr {
   text-decoration: none;
 }
 
-.containerWeather a:focus{
+.containerWeather a:focus {
   border: 3px solid var(--primary);
 }
 
