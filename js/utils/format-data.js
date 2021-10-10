@@ -30,10 +30,10 @@ export function setBackground(weather){
 
   let size = (window.matchMedia("(-webkit-max-device-pixel-ratio:2)").matches) ? "-x2" : ""
 
-
-  if (sunSetTime < currentHours > sunRiseTime) {
+  console.log(sunSetTime)
+  if (currentHours >= sunRiseTime && currentHours <= sunSetTime) {
     return `url(img/day-${weatherConditionsCodes[idWeather]}-bg${size}.jpg)`
-  } else if (sunSetTime > currentHours < sunRiseTime){
+  } else if (currentHours < sunRiseTime || currentHours > sunSetTime){
     return `url(img/nigth-${weatherConditionsCodes[idWeather]}-bg${size}.jpg)`
   }
 }
