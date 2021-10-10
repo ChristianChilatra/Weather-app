@@ -27,8 +27,8 @@ export function setBackground(weather){
   const sunSetTime = new Date(weather.sys.sunset * 1000).getHours()
   let idWeather = String(weather.weather[0].id)[0]
   if (sunSetTime < currentHours > sunRiseTime) {
-    return `url(../../img/day-${weatherConditionsCodes[idWeather]}-bg.jpg)`
+    return `url(Weather-app/img/day-${weatherConditionsCodes[idWeather]}-bg.jpg)`
   } else if (sunSetTime > currentHours < sunRiseTime){
-    return `url(..//..//img/nigth-${weatherConditionsCodes[idWeather]}-bg.jpg)`
+    return `url(Weather-app//img/nigth-${weatherConditionsCodes[idWeather]}-bg.jpg)`
   }
 }
