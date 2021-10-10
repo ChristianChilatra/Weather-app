@@ -29,6 +29,6 @@ export function setBackground(weather){
   if (sunSetTime < currentHours > sunRiseTime) {
     return `url(Weather-app/img/day-${weatherConditionsCodes[idWeather]}-bg.jpg)`
   } else if (sunSetTime > currentHours < sunRiseTime){
-    return `url(Weather-app//img/nigth-${weatherConditionsCodes[idWeather]}-bg.jpg)`
+    return `url(Weather-app/img/nigth-${weatherConditionsCodes[idWeather]}-bg.jpg)`
   }
 }
