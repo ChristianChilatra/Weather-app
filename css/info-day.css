@@ -9,15 +9,17 @@ main {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
 }
-main hr{
+
+main hr {
   position: absolute;
   inline-size: 4rem;
   block-size: .25rem;
   background: var(--white);
   border: none;
   inset-block-start: 0;
-  inset-inline-start: 45%;
+  inset-inline-start: 42.5%;
   border-radius: .5rem;
 }
 
@@ -26,11 +28,12 @@ main hr{
   column-gap: 1.5rem;
   justify-content: start;
   overflow-x: auto;
+  overflow-y: hidden;
   grid-template-columns: repeat(5, auto);
   grid-template-areas: "time time time time time" "whter whter whter whter whter";
 }
 
-.containerTime::-webkit-scrollbar{
+.containerTime::-webkit-scrollbar {
   display: none;
 }
 
@@ -51,31 +54,32 @@ main hr{
   font-size: 1rem;
   white-space: nowrap;
   margin: 0;
-  block-size: 2rem;
+  block-size: auto;
 }
 
-.containerWheater {
+.containerWeather {
   block-size: 7.5rem;
   padding: 1rem 0 1rem 0;
   overflow-x: auto;
   grid-area: whter;
 }
 
-.containerWheater::-webkit-scrollbar {
+.containerWeather::-webkit-scrollbar {
   display: none;
 }
 
-.containerWheater ul {
+.containerWeather {
   padding: 0;
   display: flex;
   gap: 1rem;
   margin: 0;
+  align-items: center;
 }
 
-.containerWheater li {
+.containerWeather a {
   display: flex;
   flex-direction: column;
-  inline-size: 4.0625rem;
+  min-inline-size: 4.0625rem;
   block-size: 7rem;
   background-color: var(--grey);
   white-space: nowrap;
@@ -86,13 +90,10 @@ main hr{
   justify-content: center;
   gap: .5rem;
   border-radius: 3.625rem;
-}
-
-.containerWheater a {
   text-decoration: none;
 }
 
-.containerWheater a:focus li {
+.containerWeather a:focus{
   border: 3px solid var(--primary);
 }
 
@@ -102,7 +103,8 @@ main hr{
   grid-template-rows: 1fr 1fr;
   gap: 1rem;
 }
-.containerDate div{
+
+.containerDate div {
   display: flex;
   gap: .5rem;
 }
@@ -113,7 +115,15 @@ main hr{
   font-size: 1rem;
 }
 
-.containerDate input, .containerWheater input {
+.containerWeather #temp {
+  inline-size: 2.5rem;
+  block-size: auto;
+  color: var(--white);
+  font: var(--body1-bold);
+  text-align: center;
+}
+
+.containerDate input {
   background: transparent;
   inline-size: 100%;
   border: none;

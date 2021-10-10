@@ -6,17 +6,11 @@ section {
   position: relative;
   inset-block-start: calc(100vh - 45rem);
   display: grid;
-  grid-template-columns: 7.5rem .75rem auto;
+  grid-template-columns: 7.5rem 1fr;
   grid-template-rows: 1fr 1fr;
-  grid-template-areas: "temp dataTime dataTime" "temp icon ubi";
+  grid-template-areas: "temp dataTime" "temp ubi";
   border-radius: .5rem;
   row-gap: .5rem;
-}
-
-section img {
-  grid-area: icon;
-  inline-size: .625rem;
-  block-size: .75rem;
 }
 
 #tempGps {
@@ -24,7 +18,7 @@ section img {
   border: none;
   grid-area: temp;
   inline-size: 4rem;
-  block-size: 2.6875rem;
+  block-size: auto;
   place-self: center;
   font-size: 2.8rem;
   color: var(--white);
@@ -54,4 +48,10 @@ section img {
   border: none;
   font: var(--caption-caption);
   color: var(--white);
+  display: flex;
+  gap: .5rem;
+}
+
+#dateGps::before{
+  content: url(../icon/gps.svg);
 }

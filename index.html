@@ -9,64 +9,72 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <title>Document</title>
+  <title>Wheather App</title>
 </head>
 
 <body>
   <main>
     <hr>
     <div class="containerTime">
-      <a href="#"><h2>Hoy</h2></a>
-      <a href="#"><h2>Mañana</h2></a>
-      <a href="#"><h2>Semana</h2></a>
-      <a href="#"><h2>Siguiente </h2></a>
-      <a href="#"><h2>Siguiente Semana</h2></a>
+      <a href="#">
+        <h2>Hoy</h2>
+      </a>
+      <a href="#">
+        <h2>Mañana</h2>
+      </a>
+      <a href="#">
+        <h2>Semana</h2>
+      </a>
+      <a href="#">
+        <h2>Siguiente </h2>
+      </a>
+      <a href="#">
+        <h2>Siguiente Semana</h2>
+      </a>
     </div>
-    <div class="containerWheater">
-      <ul>
-        <a href="#">
-          <li>Ahora
-            <img src="icon/sunny.png" alt="imagen soleado" Width=20px Height=22px<>
-            <input type="text" name="temp" id="temp" disabled>
-          </li>
-        </a>
-        <a href="#">
-          <li>4 p.m
-            <img src="icon/sunny.png" alt="imagen soleado" Width=20px Height=22px<>
-            <input type="text" name="temp" id="temp" disabled>
-          </li>
-        </a>
-        <a href="#">
-          <li>5 p.m
-            <img src="icon/sunny.png" alt="imagen soleado" Width=20px Height=22px<>
-            <input type="text" name="temp" id="temp" disabled>
-          </li>
-        </a>
-        <a href="#">
-          <li>6 p.m
-            <img src="icon/cloudy.png" alt="imagen soleado" Width=20px Height=22px<>
-            <input type="text" name="temp" id="temp" disabled>
-          </li>
-        </a>
-        <a href="#">
-          <li>7 p.m
-            <img src="icon/cloudy.png" alt="imagen soleado" Width=20px Height=22px<>
-            <input type="text" name="temp" id="temp" disabled>
-          </li>
-        </a>
-        <a href="#">
-          <li>8 p.m
-            <img src="icon/cloudy.png" alt="imagen soleado" Width=20px Height=22px<>
-            <input type="text" name="temp" id="temp" disabled>
-          </li>
-        </a>
-        <a href="#">
-          <li>9 p.m
-            <img src="icon/cloudy.png" alt="imagen soleado" Width=20px Height=22px<>
-            <input type="text" name="temp" id="temp" disabled>
-          </li>
-        </a>
-      </ul>
+    <div class="containerWeather">
+      <a href="#">
+        Ahora
+        <img src="icon/sunny.png" alt="imagen soleado" Width=19px Height=22px<>
+        <span id="temp"></span>
+
+      </a>
+      <a href="#">
+        4 p.m
+        <img src="icon/sunny.png" alt="imagen soleado" Width=19px Height=22px>
+        <span id="temp"></span>
+
+      </a>
+      <a href="#">
+        5 p.m
+        <img src="icon/sunny.png" alt="imagen soleado" Width=19px Height=22px>
+        <span id="temp"></span>
+
+      </a>
+      <a href="#">
+        6 p.m
+        <img src="icon/cloudy.png" alt="imagen soleado" Width=22px Height=21px>
+        <span id="temp"></span>
+
+      </a>
+      <a href="#">
+        7 p.m
+        <img src="icon/cloudy.png" alt="imagen soleado" Width=22px Height=21px>
+        <span id="temp"></span>
+
+      </a>
+      <a href="#">
+        8 p.m
+        <img src="icon/cloudy.png" alt="imagen soleado" Width=22px Height=21px>
+        <span id="temp">25°</span>
+
+      </a>
+      <a href="#">
+        9 p.m
+        <img src="icon/cloudy.png" alt="imagen soleado" Width=22px Height=21px>
+        <span id="temp"></span>
+
+      </a>
     </div>
     <div class="containerDate">
       <div>
@@ -74,26 +82,25 @@
         <input type="text" name="tempMax" id="tempMax" disabled value="26°">
       </div>
       <div>
-        <label for="">Mín:</label>
+        <label for="tempMin">Mín:</label>
         <input type="text" name="tempMin" id="tempMin" disabled value="15°">
       </div>
       <div>
-        <label for="">Viento:</label>
+        <label for="Viento">Viento:</label>
         <input type="text" name="Viento" id="Viento" disabled value="12">
       </div>
       <div>
-        <label for="">Humedad:</label>
+        <label for="Humedad">Humedad:</label>
         <input type="text" name="Humedad" id="Humedad" disabled value="63%">
       </div>
     </div>
   </main>
   <section>
-    <input type="text" name="tempGps" id="tempGps" disabled value="25°">
-    <input type="text" name="dataTime" id="dataTime" disabled value="Jueves, 15 de Julio">
-    <img src="icon/gps.svg" alt="imagen gps" disabled>
-    <input type="text" name="dateGps" id="dateGps" disabled value="Ensenada B.C.">
+    <span id="tempGps"></span>
+    <span id="dataTime"></span>
+    <span id="dateGps"></span>
   </section>
+  <script src="js/index.js" type="module"></script>
 </body>
-<script src="js/index.js"></script>
 
 </html>
