@@ -1,8 +1,27 @@
-body{
-  background-image:none;
-  background-size:cover;
+@import url(style-loader.css);
+
+body {
+  background-image: none;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   margin: 0;
   height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr auto;
+  grid-template-areas: "dataGeo" "dataWeather";
+  gap: 1rem;
+}
+
+.loader {
+  background: url(/img/loader-bg.png);
+  background-repeat: no-repeat;
+  background-size: 18rem 18rem;
+  background-position: center;
+  backdrop-filter: blur(50px);
+  inline-size: 100%;
+  block-size: 100vh;
+  position: absolute;
+  z-index: 1;
 }

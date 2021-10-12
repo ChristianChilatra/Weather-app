@@ -1,5 +1,5 @@
 
-import {weatherConditionsCodes} from "./constants.js"
+import { weatherConditionsCodes } from "./constants.js"
 
 
 export function setFormatTime() {
@@ -15,11 +15,11 @@ export function setFormatTime() {
   return formatTime
 }
 
-export function setFormatTemp(temp){
+export function setFormatTemp(temp) {
   return `${Math.floor(temp)}°`
 }
 
-export function setBackground(weather){
+export function setBackground(weather) {
 
   const date = new Date()
   const currentHours = date.getHours()
@@ -29,11 +29,48 @@ export function setBackground(weather){
 
 
   let size = (window.matchMedia("(-webkit-max-device-pixel-ratio:2)").matches) ? "-x2" : ""
-
-  console.log(sunSetTime)
   if (currentHours >= sunRiseTime && currentHours <= sunSetTime) {
     return `url(img/day-${weatherConditionsCodes[idWeather]}-bg${size}.jpg)`
-  } else if (currentHours < sunRiseTime || currentHours > sunSetTime){
+  } else if (currentHours < sunRiseTime || currentHours > sunSetTime) {
     return `url(img/nigth-${weatherConditionsCodes[idWeather]}-bg${size}.jpg)`
   }
+}
+
+export function setListWeeklyWeather(weather) {
+  const listTempWeekly = []
+  let listTemporal = []
+  for (const prop in weather.list) {
+    listTemporal.push(weather.list[prop])
+    if (listTemporal.length === 8) {
+      listTempWeekly.push(listTemporal)
+      listTemporal = []
+    }
+  }
+  return listTempWeekly
+}
+
+export function setListTemp(listWeeklyWeather) {
+  const date = new Date()
+  const currentHours = date.getHours()
+  const currentDay = date.getDate()
+  const newArray = []
+  const dayDate = listWeeklyWeather[0][0].dt_txt.split(" ")[0].split("-")[2]
+  const hourDate = listWeeklyWeather[0][0].dt_txt.split(" ")[1].split(":")[0]
+  console.log(currentDay)
+  console.log(Number(dayDate))
+
+  if (Number(dayDate) === currentDay) {
+    listWeeklyWeather[0].forEach((elemento) => {
+      if (hourDate >= currentHours) {
+        newArray.push(elemento)
+      }
+    })
+    listWeeklyWeather.shift()
+    listWeeklyWeather.unshift(newArray)
+
+
+  } else {
+    listWeeklyWeather.unshift(newArray)
+  }
+  return listWeeklyWeather
 }

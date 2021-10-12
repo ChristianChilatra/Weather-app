@@ -2,15 +2,15 @@ section {
   background: var(--gradient);
   inline-size: 14.5rem;
   block-size: 5.6875rem;
-  margin: auto;
-  position: relative;
-  inset-block-start: calc(100vh - 45rem);
   display: grid;
   grid-template-columns: 7.5rem 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas: "temp dataTime" "temp ubi";
   border-radius: .5rem;
   row-gap: .5rem;
+  grid-area: dataGeo;
+  justify-self: center;
+  align-self: flex-end;
 }
 
 #tempGps {
@@ -27,14 +27,13 @@ section {
 }
 
 #dataTime {
-  inline-size: 1rem;
   block-size: auto;
   grid-area: dataTime;
+  text-align: center;
   justify-content: start;
   align-self: flex-end;
-  inline-size: 100%;
   background: transparent;
-  padding: 0;
+  padding-inline-end: 1rem;
   border: none;
   font: var(--caption-caption);
   color: var(--white);
@@ -55,6 +54,6 @@ section {
   gap: .5rem;
 }
 
-#dateGps::before{
+#dateGps::before {
   content: url(../icon/gps.svg);
 }

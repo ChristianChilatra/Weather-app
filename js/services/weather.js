@@ -1,16 +1,15 @@
-import {getLatLong} from "../geolocation.js"
-import { KEY_API, BASE_API} from "../utils/constants.js"
+import { KEY_API, BASE_API_CURRENTLY, BASE_API_WEEKLY } from "../utils/constants.js"
 
-export async function getCurrentWeather(latitud, longitud){
+export async function getWeather(latitud, longitud) {
 
   try {
-    const response = await fetch(`${BASE_API}?lat=${latitud}&lon=${longitud}&appid=${KEY_API}&units=metric`)
-    const data = await response.json()
-    return data
+    const responseCurrentlyWeather = await fetch(`${BASE_API_CURRENTLY}?lat=${latitud}&lon=${longitud}&appid=${KEY_API}&units=metric`)
+    const currentlyWeather = await responseCurrentlyWeather.json()
+    const responseWeeklyWeather = await fetch(`${BASE_API_WEEKLY}?lat=${latitud}&lon=${longitud}&appid=${KEY_API}&units=metric`)
+    const weeklyWeather = await responseWeeklyWeather.json()
+    return { responseCurrentlyWeather, currentlyWeather, weeklyWeather }
+
   } catch (error) {
     console.log(error.message)
   }
-
 }
-
-

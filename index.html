@@ -9,72 +9,36 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <title>Wheather App</title>
+  <title>Weather App</title>
 </head>
 
 <body>
+  <div class="loader" id="loader">
+    <div class="lds-ellipsis">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
   <main>
     <hr>
     <div class="containerTime">
-      <a href="#">
-        <h2>Hoy</h2>
-      </a>
-      <a href="#">
-        <h2>Mañana</h2>
-      </a>
-      <a href="#">
-        <h2>Semana</h2>
-      </a>
-      <a href="#">
-        <h2>Siguiente </h2>
-      </a>
-      <a href="#">
-        <h2>Siguiente Semana</h2>
-      </a>
+      <button class="tabDays">
+        <h2 id="tab1"></h2>
+      </button>
+      <button class="tabDays">
+        <h2 id="tab2"></h2>
+      </button>
+      <button class="tabDays">
+        <h2 id="tab3"></h2>
+      </button>
+      <button class="tabDays">
+        <h2 id="tab4"></h2>
+      </button>
+
     </div>
     <div class="containerWeather">
-      <a href="#">
-        Ahora
-        <img src="icon/sunny.png" alt="imagen soleado" Width=19px Height=22px<>
-        <span id="temp"></span>
-
-      </a>
-      <a href="#">
-        4 p.m
-        <img src="icon/sunny.png" alt="imagen soleado" Width=19px Height=22px>
-        <span id="temp"></span>
-
-      </a>
-      <a href="#">
-        5 p.m
-        <img src="icon/sunny.png" alt="imagen soleado" Width=19px Height=22px>
-        <span id="temp"></span>
-
-      </a>
-      <a href="#">
-        6 p.m
-        <img src="icon/cloudy.png" alt="imagen soleado" Width=22px Height=21px>
-        <span id="temp"></span>
-
-      </a>
-      <a href="#">
-        7 p.m
-        <img src="icon/cloudy.png" alt="imagen soleado" Width=22px Height=21px>
-        <span id="temp"></span>
-
-      </a>
-      <a href="#">
-        8 p.m
-        <img src="icon/cloudy.png" alt="imagen soleado" Width=22px Height=21px>
-        <span id="temp">25°</span>
-
-      </a>
-      <a href="#">
-        9 p.m
-        <img src="icon/cloudy.png" alt="imagen soleado" Width=22px Height=21px>
-        <span id="temp"></span>
-
-      </a>
     </div>
     <div class="containerDate">
       <div>
