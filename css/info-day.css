@@ -3,7 +3,8 @@ main {
   padding: 1.625rem 1.125rem;
   inline-size: 85vw;
   block-size: auto;
-  border-radius: .8rem;
+  border-start-end-radius: .8rem;
+  border-start-start-radius: .8rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -34,20 +35,14 @@ main hr {
   overflow: auto;
 }
 
-.containerTime::-webkit-scrollbar{
+.containerTime::-webkit-scrollbar {
   display: none;
-}
-
-.containerTime .tabDays:focus h2 {
-  color: var(--primary);
-  font: var(--body1-bold);
-  box-shadow: inset 0px -8px 0px -5px var(--primary);
-  user-select: none;
 }
 
 .containerTime .tabDays {
   background: transparent;
   border: none;
+  padding: 0;
 }
 
 .containerTime .tabDays h2 {
@@ -57,6 +52,13 @@ main hr {
   white-space: nowrap;
   margin: 0;
   block-size: auto;
+}
+
+.containerTime .tabDays:focus h2 {
+  color: var(--primary);
+  font: var(--body1-bold);
+  box-shadow: inset 0px -8px 0px -5px var(--primary);
+  user-select: none;
 }
 
 .containerWeather {
@@ -85,35 +87,12 @@ main hr {
   font: var(--body2-regular);
   font-size: .75rem;
   border: none;
-  padding: 0;
+  padding: .5rem;
   min-inline-size: 3.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-}
-
-.containerWeather button:focus {
-  border: 3px solid var(--primary);
-}
-
-.containerDate {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 1rem;
-  display: none;
-}
-
-.containerDate div {
-  display: flex;
-  gap: .5rem;
-}
-
-.containerDate label {
-  color: var(--white);
-  font: var(--body1-regular);
-  font-size: 1rem;
 }
 
 .containerWeather #temp {
@@ -124,7 +103,30 @@ main hr {
   text-align: center;
 }
 
-.containerDate input {
+.containerWeather button:focus {
+  border: 3px solid var(--primary);
+}
+
+.containerDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+  display: none;
+}
+
+.containerDetails div {
+  display: flex;
+  gap: .5rem;
+}
+
+.containerDetails label {
+  color: var(--white);
+  font: var(--body1-regular);
+  font-size: 1rem;
+}
+
+.containerDetails input {
   background: transparent;
   inline-size: 100%;
   border: none;

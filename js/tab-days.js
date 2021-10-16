@@ -7,7 +7,6 @@ const $tabTemps = document.querySelector(".containerWeather")
 
 let day = new Date().getDay()
 
-
 $tabDay.forEach(($element, index) => {
   showTabTemps($element)
   $element.querySelector("h2").textContent = daysIndexDate[day]

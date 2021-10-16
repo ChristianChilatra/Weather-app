@@ -38,39 +38,33 @@ export function setBackground(weather) {
 
 export function setListWeeklyWeather(weather) {
   const listTempWeekly = []
-  let listTemporal = []
   for (const prop in weather.list) {
-    listTemporal.push(weather.list[prop])
-    if (listTemporal.length === 8) {
-      listTempWeekly.push(listTemporal)
-      listTemporal = []
-    }
+    listTempWeekly.push(weather.list[prop])
   }
   return listTempWeekly
 }
 
 export function setListTemp(listWeeklyWeather) {
+
   const date = new Date()
   const currentHours = date.getHours()
-  const currentDay = date.getDate()
-  const newArray = []
-  const dayDate = listWeeklyWeather[0][0].dt_txt.split(" ")[0].split("-")[2]
-  const hourDate = listWeeklyWeather[0][0].dt_txt.split(" ")[1].split(":")[0]
-  console.log(currentDay)
-  console.log(Number(dayDate))
+  let currentDay = date.getDate()
+  let arrayTemporal = []
+  const arrayListTemp = []
 
-  if (Number(dayDate) === currentDay) {
-    listWeeklyWeather[0].forEach((elemento) => {
-      if (hourDate >= currentHours) {
-        newArray.push(elemento)
-      }
-    })
-    listWeeklyWeather.shift()
-    listWeeklyWeather.unshift(newArray)
+  listWeeklyWeather.forEach((elemento) => {
 
+    const dayDate = elemento.dt_txt.split(" ")[0].split("-")[2]
+    const hourDate = elemento.dt_txt.split(" ")[1].split(":")[0]
 
-  } else {
-    listWeeklyWeather.unshift(newArray)
-  }
-  return listWeeklyWeather
+    if (Number(dayDate) === currentDay){
+      arrayTemporal.push(elemento)
+
+    } else{
+      arrayListTemp.push(arrayTemporal)
+      currentDay++
+      arrayTemporal = []
+    }
+  })
+  return arrayListTemp
 }
