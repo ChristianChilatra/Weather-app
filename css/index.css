@@ -2,8 +2,34 @@
 @import url(info-day.css);
 @import url(info-gps.css);
 
+@font-face {
+  font-family: 'Nunito';
+  src: url(../fonts/Nunito/Nunito-Regular.ttf) format('truetype');
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Nunito';
+  src: url(../fonts/Nunito/Nunito-Black.ttf) format('truetype');
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Nunito';
+  src: url(../fonts/Nunito/Nunito-Bold.ttf) format('truetype');
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Nunito';
+  src: url(../fonts/Nunito/Nunito-ExtraBold.ttf) format('truetype');
+  font-style: normal;
+  font-weight: 800;
+}
+
+
 :root {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Nunito';
   --white: #eff0f3;
   --black: #393939;
   --primary: #ff8906;

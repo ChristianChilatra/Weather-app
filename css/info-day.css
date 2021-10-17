@@ -33,6 +33,7 @@ main hr {
   display: flex;
   justify-content: flex-start;
   overflow: auto;
+  user-select: none;
 }
 
 .containerTime::-webkit-scrollbar {
@@ -43,6 +44,7 @@ main hr {
   background: transparent;
   border: none;
   padding: 0;
+  cursor: pointer;
 }
 
 .containerTime .tabDays h2 {
@@ -93,6 +95,7 @@ main hr {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  cursor: pointer;
 }
 
 .containerWeather #temp {
@@ -101,6 +104,11 @@ main hr {
   color: var(--white);
   font: var(--body1-bold);
   text-align: center;
+}
+.containerWeather h2{
+  color: white;
+  font: var(--body1-regular);
+  margin: auto;
 }
 
 .containerWeather button:focus {
