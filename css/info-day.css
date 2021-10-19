@@ -1,6 +1,7 @@
 main {
   background-color: var(--bg);
   padding: 1.625rem 1.125rem;
+  padding-block-start: 0;
   inline-size: 85vw;
   block-size: auto;
   border-start-end-radius: .8rem;
@@ -14,18 +15,24 @@ main {
   justify-self: self-start;
   justify-self: center;
   align-self: center;
+  touch-action: none;
 }
 
-main hr {
-  position: absolute;
-  margin: 0 calc(50% - 2rem) 0 calc(50% - 2rem);
+#draggable {
+  inline-size:auto;
+  block-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#draggable::before {
+  content: " ";
   inline-size: 4rem;
-  block-size: .25rem;
+  block-size: .4rem;
   background: var(--white);
-  border: none;
-  inset-inline-start: 0;
-  inset-block-start: .5rem;
   border-radius: .5rem;
+  margin: auto;
 }
 
 .containerTime {
@@ -105,7 +112,8 @@ main hr {
   font: var(--body1-bold);
   text-align: center;
 }
-.containerWeather h2{
+
+.containerWeather h2 {
   color: white;
   font: var(--body1-regular);
   margin: auto;

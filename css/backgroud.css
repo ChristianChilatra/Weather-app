@@ -1,5 +1,4 @@
 @import url(style-loader.css);
-
 body {
   background-image: none;
   background-size: cover;
@@ -12,6 +11,7 @@ body {
   grid-template-rows: 2fr auto;
   grid-template-areas: "dataGeo" "dataWeather";
   gap: 1rem;
+  overflow-y: hidden;
 }
 
 .loader {
