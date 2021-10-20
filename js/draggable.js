@@ -7,119 +7,100 @@ const defaultConfig = {
 export default function draggable($element, config = defaultConfig) {
 
   if ($element instanceof HTMLElement) {
-
   } else (
     console.warn("Se esperaba elemento HTML, se recibio " + $element)
   )
 
-  let positionDown = 0
-  let positionMove = 0
-  let positionDraggable = 0
-
+  const $heightBody = document.querySelector("body").getBoundingClientRect().height
   const $marker = $element.querySelector("[data-marker]")
-  const elementMarkerHeight = $marker.getBoundingClientRect().height
+  const $heightMarker = $marker.getBoundingClientRect().height
 
 
-  const VISIBLE_Y_POSITION = 0
-  const HIDDEN_Y_POSITION = setHiddenYposition()
-  console.log(HIDDEN_Y_POSITION)
+  $marker.addEventListener("pointermove", draggableMove)
+  $marker.addEventListener("pointerdown", draggableDown)
+  $marker.addEventListener("pointerup", draggableUp)
+  $marker.addEventListener("pointercancel", draggableCancel)
+  $marker.addEventListener("pointerout", draggableOut)
+  $marker.addEventListener("click", draggableClick)
 
-  let isOpen = config.open
-  isOpen ? open(VISIBLE_Y_POSITION) : close(HIDDEN_Y_POSITION)
+
+  let count = 0
 
   const isAnimatable = config.open
   isAnimatable ? animation() : ""
 
-  function setHiddenYposition() {
-    const $elementHeight = $element.getBoundingClientRect().height
-    return $elementHeight - elementMarkerHeight
+  let isOpen = config.open
+  isOpen ? open(0) : close(calcHeightHidden())
+
+
+  function draggableMove(event) {
+    const cursosDirection = event.movementY
+    setPositionDragabble(cursosDirection)
   }
-
-
-  $marker.addEventListener("click", handleClick)
-  $marker.addEventListener("pointerdown", handlePointerDown)
-  $marker.addEventListener("pointerup", handlePointerUp)
-  $marker.addEventListener("pointerout", handlePointerOut)
-  $marker.addEventListener("pointercancel", handlePointerCancel)
-  $marker.addEventListener("pointermove", handlePointerMove)
-
-  function handlePointerDown(event) {
-    // logger("Pointer Down")
-    if(positionDown === 0){
-      positionDown = event.pageY
-      console.log("No hay diferencia")
-    } else if (HIDDEN_Y_POSITION != setHiddenYposition()){
-      positionDown = event.pageY
-      console.log("Sí hay diferencia")
-    }
+  function draggableDown(event) {
+    console.log("Se selecciono")
   }
-  function handlePointerUp() {
-    // logger("Pointer Up")
+  function draggableUp(event) {
+    console.log("Se levanto")
     bounce()
   }
-  function handlePointerOut() {
-    // logger("Pointer Out")
+  function draggableCancel(event) {
+    console.log("Se Cancelo")
     bounce()
   }
-  function handlePointerCancel() {
-    // logger("Pointer Cancel")
+  function draggableOut(event) {
+    console.log("Se Salio")
     bounce()
   }
-  function handlePointerMove(event) {
-    // logger("Pointer Move")
-    positionMove = event.pageY
-    positionY()
-  }
-  function handleClick(event) {
-    // logger("click")
-    toggle(event)
-  }
-  function positionY() {
-    positionDraggable = positionMove - positionDown
-    // if (positionDraggable > setHiddenYposition() || positionDraggable < VISIBLE_Y_POSITION) {
-    //   return false
-    // }
-    // console.log("posicion en pixel " + positionDraggable)
-    setWidgetPosition(positionDraggable)
 
-  }
-  function toggle() {
-
-    if (config.open === false) {
+  function draggableClick(event) {
+    console.log("Click")
+    if (config.open === false){
       config.open = true
-      open(VISIBLE_Y_POSITION)
+      open(0)
     } else {
       config.open = false
-      close(setHiddenYposition())
+      close(calcHeightHidden())
     }
+  }
+
+  function setPositionDragabble(cursosDirection) {
+    if (count >= 0 || count <= calcHeightHidden()) {
+      count += cursosDirection
+    }
+    if (count > calcHeightHidden() || count < 0) {
+      return false
+    }
+    setStyleDraggable(count)
   }
 
   function bounce() {
-
-  }
-
-  function animation() {
-    $element.style.transition = "inset-block-start .1s"
-  }
-
-  function logger(message) {
-    if (config.debbug) {
-      console.info(message)
+    if (count > $element.getBoundingClientRect().height / 2) {
+      close(calcHeightHidden())
+    } else{
+      open(0)
     }
   }
 
   function open(value) {
-    logger("Abrir Widgt")
     isOpen = true
-    setWidgetPosition(value)
+    setStyleDraggable(value)
   }
   function close(value) {
-    logger("Cerrar Widgt")
     isOpen = false
-    setWidgetPosition(value)
+    setStyleDraggable(value)
   }
 
-  function setWidgetPosition(valueCalc) {
-    $element.style.insetBlockStart = `${valueCalc}px`
+  function setStyleDraggable(count) {
+    $element.style.insetBlockStart = `${count}px`
   }
+
+  function animation() {
+    $element.style.transition = "inset-block-start .3s"
+  }
+
+  function calcHeightHidden() {
+    return $element.getBoundingClientRect().height - $heightMarker
+  }
+
 }
