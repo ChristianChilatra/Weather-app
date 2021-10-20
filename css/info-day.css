@@ -21,7 +21,7 @@ main {
 
 #draggable {
   inline-size:auto;
-  block-size: 1.5rem;
+  block-size: 2.5rem;
   display: flex;
   justify-content: center;
   align-items: center;

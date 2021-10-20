@@ -13,7 +13,6 @@ export default function draggable($element, config = defaultConfig) {
 
   const $heightBody = document.querySelector("body").getBoundingClientRect().height
   const $marker = $element.querySelector("[data-marker]")
-  const $heightMarker = $marker.getBoundingClientRect().height
 
 
   $marker.addEventListener("pointermove", draggableMove)
@@ -72,6 +71,7 @@ export default function draggable($element, config = defaultConfig) {
       return false
     }
     setStyleDraggable(count)
+    $element.style.insetBlockStart = `${count}px`
   }
 
   function bounce() {
@@ -100,7 +100,7 @@ export default function draggable($element, config = defaultConfig) {
   }
 
   function calcHeightHidden() {
-    return $element.getBoundingClientRect().height - $heightMarker
+    return $element.getBoundingClientRect().height - $marker.getBoundingClientRect().height
   }
 
 }
