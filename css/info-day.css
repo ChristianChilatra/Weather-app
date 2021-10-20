@@ -17,6 +17,8 @@ main {
   justify-self: center;
   align-self: flex-start;
   touch-action: none;
+  -webkit-tap-highlight-color: red;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #draggable {
@@ -55,6 +57,7 @@ main {
   cursor: pointer;
 }
 
+
 .containerTime .tabDays h2 {
   color: var(--white);
   font: var(--body1-regular);
@@ -69,6 +72,8 @@ main {
   font: var(--body1-bold);
   box-shadow: inset 0px -8px 0px -5px var(--primary);
   user-select: none;
+  transform: scale(1.1);
+  transition: transform .1s;
 }
 
 .containerWeather {
