@@ -13,6 +13,6 @@ const $draggable = document.querySelector("main")
 
 setViewPort($bodyBlockSize)
 setViewPort($loaderBlockSize)
-draggable($draggable)
 currentWeather()
 weeklyWeather()
+draggable($draggable)

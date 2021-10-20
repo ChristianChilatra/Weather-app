@@ -9,8 +9,9 @@ section {
   border-radius: .5rem;
   row-gap: .5rem;
   grid-area: dataGeo;
-  justify-self: center;
-  align-self: flex-end;
+  align-self: center;
+  position: absolute;
+  inset-block-start: -7rem;
 }
 
 #tempGps {
