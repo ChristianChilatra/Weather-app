@@ -9,7 +9,7 @@ export async function currentWeather() {
   try {
     const { latitud, longitud } = await getLatLong() //obtenemos lat y lon de Geolocation
     //contenemos en variable de FETCH responseCurrentlyWeather-> Response // currentlyWeather -> Responsive JSON
-    const { responseCurrentlyWeather, currentlyWeather } = await getWeather(latitud, longitud) 
+    const { responseCurrentlyWeather, currentlyWeather } = await getWeather(latitud, longitud)
     configCurrentWeather(responseCurrentlyWeather, currentlyWeather) //Ejecutamos configuracion visual de datos
   } catch (err) {
     console.log(err.message) // si el consumo de Geolocalizacion o API weather genera error, se imprime aqui
@@ -18,14 +18,14 @@ export async function currentWeather() {
 
 
 function setCurrentCity($elemento, city) {
-  $elemento.textContent = city
+  $elemento.textContent = city                    // Almacenamos Elemento DOM donde se visualizara la Ubicacion
 }
 function setCurrentDate($elemento) {
   let arrayFinal = ""
   function dateUpperCase() {
     let day = setFormatTime()
     let newArray = day.split(" ")
-    newArray.forEach(function (el) {
+    newArray.forEach(function (el) {         // Damos pequeño formato de estilo a la informacion visual
       if (el.length > 4) {
         arrayFinal += el.replace(el[0], el[0].toUpperCase()) + " "
       } else {
@@ -37,7 +37,7 @@ function setCurrentDate($elemento) {
   $elemento.textContent = arrayFinal
 }
 function setCurrentTemp($elemento, temp) {
-  $elemento.textContent = setFormatTemp(temp)
+  $elemento.textContent = setFormatTemp(temp) //Enviamos a DOM la temperatura actual
 }
 function setCurrentBackground($elemento, weather) {
   $elemento.style.backgroundImage = setBackground(weather) //llamada de funcion que establece BackGround
@@ -48,7 +48,7 @@ function setBackgroundLoader($elemento, response){
   }
 }
 
-function configCurrentWeather(response, weather) { 
+function configCurrentWeather(response, weather) {
   //Funcion que configura la visual actual del clima en APP // response-> ResponsiveAPI // weather -> Response JSON
 
   const $currentCity = document.querySelector("#dateGps") //almacenamos elemento DOM "#dataGps"" // "Muestra ubicacion Actual"

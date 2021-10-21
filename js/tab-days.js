@@ -18,7 +18,7 @@ $tabDay.forEach(($element, index) => {
 })
 
 function showTabTemps($element){
-  $element.addEventListener("click", (event)=>{
+  $element.addEventListener("click", (event)=>{ //Al reconocer evento Click sobre los TabDay modifica Display en elemento TabTemps
     $tabTemps.style.display = "flex"
   })
 }
